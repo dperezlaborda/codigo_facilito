@@ -1,0 +1,1 @@
+export const name = 'Dolores';  //exporto la variable a otro modulo deentro de la misma carpeta js. 
