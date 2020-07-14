@@ -70,7 +70,10 @@ if(calificacion == 10){             //1era condicion, cuando se cumple una condi
 /** LOOP, ciclos:
  * El ciclo for esta diseñado para repetir un numero o un bloque varias veces
  * El ciclo while repite la accion mientras que la expresion booleana se cumpla.
- * El ciclo do{}while(), se ejecuta primero el codigo y luego se ejecuta la condicion de expresion booleana. 
+ * El ciclo do{}while(), se ejecuta primero el codigo y luego se ejecuta la condicion de expresion booleana.(HACER MIENTRAS)
+ * 
+ * La diferencia que tiene esta estructura con el while es que siempre se 
+ * ejecuta al menos una vez y luego pregunta por la condición.
  */
 
 for(let i = 0; i<= 10; i++){   //es una instruccion que se ejecuta antes de iniciar el ciclo, dato booleano que mientras sea true el ciclo continua, la instruccion que se ejecuta desp de cada iteración.  
@@ -86,6 +89,10 @@ for (let i = 0; i<=10; i++){
 while(prompt()){//(expresion booleana)
  console.log("bla bla")
 } 
+
+do {
+    // esto se ejecuta al menos una vez
+    } while (condicion);
 
 /** 
  *  Undefined : indica que a una variable no se le asignó un valor o no se a declarado. Es un tipo de dato.
@@ -1044,5 +1051,12 @@ let valorPorDefecto = 250;
 export default valorPorDefecto; // correcto; default es una variable, puede haber un solo valor default.
 export default = valorPorDefecto; // incorrecto
 
+//charAt(); Devuelve un string y se pasa por () en numeros en donde deberia localizarlo. Devuelve cualquier cosa que este dentro del string ya sean espacios vacios o comas.
+//Por ej: 
 
+var seriesVistasenCuarent = 'Euphoria, Dark y Gossip Girl'
+
+console.log(seriesVistasenCuarent.charAt(3)); //devuelve h
+console.log(seriesVistasenCuarent.charAt(9)); //devuelve el espacio vacio
+console.log(seriesVistasenCuarent.charAt(8)); //devulve ,
 
