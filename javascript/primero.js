@@ -1054,9 +1054,161 @@ export default = valorPorDefecto; // incorrecto
 //charAt(); Devuelve un string y se pasa por () en numeros en donde deberia localizarlo. Devuelve cualquier cosa que este dentro del string ya sean espacios vacios o comas.
 //Por ej: 
 
-var seriesVistasenCuarent = 'Euphoria, Dark y Gossip Girl'
+var seriesVistasEnCuarent = 'Euphoria, Dark y Gossip Girl'
 
-console.log(seriesVistasenCuarent.charAt(3)); //devuelve h
-console.log(seriesVistasenCuarent.charAt(9)); //devuelve el espacio vacio
-console.log(seriesVistasenCuarent.charAt(8)); //devulve ,
+console.log(seriesVistasEnCuarent.charAt(3)); //devuelve h
+console.log(seriesVistasEnCuarent.charAt(9)); //devuelve el espacio vacio
+console.log(seriesVistasEnCuarent.charAt(8)); //devulve ,
+
+//VALORES READ ONLY: son valores que se importan y como solo esta leyendo la info que se exporta no se puede modificar el valor. 
+
+//Una variable puede modificar su valor dentro del mismo modulo que fue declarada, no por fuera de este. Por eso se declara la variable const y no con let. Por ej:
+
+//Dentro de un mismo modulo.
+
+export let edad = 27;
+
+edad = 30; //se modifica bien. 
+
+//modulo 1
+
+export let edad = 27;
+
+//modulo 2: base
+
+edad = 30; // tira error. 
+
+//GENERADORS E ITERADORES: 
+/* ITERADOR: ES CUALQUIER OBJETO QUE IMPLETA EL 'ITERATOR PROTOCOLE', SERIA CUALQUIER OBJETO QUE RECORRE UNA COLECCION (ARRAYS, OBJETOS, ETC)
+ * Y DEVUELVE UN VALOR AL TERMINAR. 
+ * Tanto los generadores como los iteradores nos permiten trabajar un dato a la vez. Estos datos a la vez es lo que el iterador o generador
+ * va produciendo en el ejemplo value seria este caso. Puede ser un numero, funcion, array, etc. 
+ */
+
+//sintaxis de iterador: 
+
+let iterador = { //objeto
+    next(){ //sigue una funcion next, dentro de ella va lo que quiero que haga el iterador
+        return{
+            value: null,  //es cualquier dato que queremos que el iterador produzca
+            done: true   //es un booleano, que indica si el iterador ha terminado de producir valores a iterar o no. Cuando es true el iterador se ha completado. Si es false, significa que sigue corriendo el iterador. 
+        }
+    } 
+}; 
+
+//un iterador que imprima valores del 1 al 5.
+
+let iterador = {
+    currentValue : 1,
+    next(){   
+        let result = {value: null, done: false};
+
+        if(this.currentValue > 0 && this.currentValue <= 5){
+            result = {value: this.currentValue, done: false};
+            this.currentValue +=1; 
+        }else{
+            result = {done:true}
+        }
+        return result; 
+    }
+}
+
+console.log(iterador.next()); //primero llama a la variable que esta definida y despues como lo único que puede llamar es una funcion y esa es next. 
+//imprimi: {value: 1, done: false} //Si llama a next(); solo este va a estar indefinido porque nace dentro de una variable. 
+console.log(iterador.next()); // si lo llamo nuevamente imprimi que el value es 2
+console.log(iterador.next()); // si lo imprimo mas de 5 veces ya no hay valor porq se cumplió el iterador. done:true. 
+//cada valor se itera y llama a next 
+
+setTimeout(()=> console.log(iterador.next()), 5000) // Un iterador se corre una vez y listo, NO se puede reiniciar. Termina cuando no hay mas valor y retorna la propiedad done como true. 
+
+//mismo ejercicio pero utilizo un ciclo que devuelva un true o false. Mientras ocurra determinada funcion haceme lo otro. 
+
+let item = iterador.next();
+
+while(!item.done){   //mientras el item no tengo su propiedad done como true continue corriendo el codigo      
+    console.log(item.value) //se imprime en consola el valor de item    
+    item = iterador.next();
+}
+
+//SE IMPRIME UNO POR UNO LOS NUMEROS: 1, 2, 3, 4, 5. 
+
+//imprimir numeros del 1 al 10 con for. 
+
+const entrarAlBar = () =>{
+    let secretPhrase = "";
+    while(secretPhrase !== "puto el que lee"){
+        secretPhrase = prompt("Bienvenido a JaVar, por favor escriba la frase secreta del dia");
+        console.log(secretPhrase);
+    }
+}
+
+entrarAlBar();
+
+//Escribe un programa que pida al usuario introducir un número entero mayor que 10, el cuadro de texto volverá a aparecer si el número es menor.
+
+const addNumb = () =>{
+    let user = 0;
+    while(user <= 10){
+        user = parseInt(prompt("Ingresa un numero mayor que 10"));
+    }
+}
+
+addNumb(); 
+
+// Escribe un programa que pida al usuario introducir un número entero entre 50 y 100, el cuadro de texto volverá a aparecer si el número es menor o mayor.
+
+let number = 0
+while(number <= 50 || number >=100){
+    number =parseInt(prompt("Ingresa un numero entre 50 y 100"));
+}   
+
+/* En primer lugar se le pedirá al usuario que introduzca un número entre 2 y 10. 
+ * Si el número no está entre estos dos valores, se le seguirá pidiendo hasta que introduzca el valor correcto. 
+ * Una vez haya introducido un valor entre 2 y 10, se mostrará por consola la tabla de multiplicar del número elegido.
+*/
+
+//resp 1
+const showTable = () =>{
+    let number;
+    let numberOne = 1;
+
+    while(number <= 2 || number >= 10 || number== undefined){
+        number = parseInt(prompt("Ingresa un numero entre 2 y 10"));
+    }   
+
+    while(numberOne <= 5){
+        (console.log(number + " * " + numberOne + " = " + number * numberOne))
+        numberOne++;    //no puedo poner 1++, poreso creo una variable y le asigno de valor 1, esto hace que el numero x el cual se multiplica vaya en ascenso. 
+    };
+}
+
+showTable();
+
+//resp 2
+var number;
+var numberOne = 1;
+
+while(number <= 2 || number >= 10 || number== undefined){
+    number = parseInt(prompt("Ingresa un numero entre 2 y 10"));
+}   
+
+while(numberOne <= 5){
+    (console.log(number + " * " + numberOne + " = " + number * numberOne))
+    numberOne++;    //no puedo poner 1++, poreso creo una variable y le asigno de valor 1, esto hace que el numero x el cual se multiplica vaya en ascenso. 
+};
+
+//Construye y muestra por consola un "triángulo" de 7 líneas como el siguiente:
+
+const showTriangle = () =>{
+    let star = "";
+    let contador = 1; 
+
+    while(contador <= 7){
+        console.log(star)
+        star = star + "*";
+        contador++; 
+    }
+}
+
+showTriangle();
 

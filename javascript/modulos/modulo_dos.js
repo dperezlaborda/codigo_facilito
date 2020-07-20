@@ -1,4 +1,8 @@
 export const name = 'Dolores';  //exporto la variable a otro modulo deentro de la misma carpeta js. 
+export let edad = 27;
+export const trabajo = 'buscando'; 
+
+edad = 30;
 
 const contarVocales = (text) =>{
     const vocales = ['a', 'e', 'i', 'o', 'u']; //Primero creo un array de vocales
@@ -20,8 +24,3 @@ for (let i = 0; i<=100; i++){
         console.log(i);
     }
 }
-
-
-
-
-
