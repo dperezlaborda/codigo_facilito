@@ -1,4 +1,6 @@
-//LAS BASES DE JS. 
+//LAS BASES DE JS 
+
+:grind:
 
 //Javascript es un lenguaje debilmente y dinamicamente tipado..
 //Tipado: hace referencia a las variables que puede tener o no un tipo. Por ej.  let edad = 24, let se usa para todas la variables, estas variables pueden tener
