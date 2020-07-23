@@ -1,6 +1,6 @@
 //LAS BASES DE JS. 
 
-//Javascript es un lenguaje debilmente y dinamicamente tipado. 
+//Javascript es un lenguaje debilmente y dinamicamente tipado..
 //Tipado: hace referencia a las variables que puede tener o no un tipo. Por ej.  let edad = 24, let se usa para todas la variables, estas variables pueden tener
 //string, numeros, etc. por ende let no te establece un tipo de dato. Let es un tipado dinamico, se puede modificar su tipo de dato todo el tiempo. 
 //Javascript es case sensitive, distingue entre mayus y minusculas. 
